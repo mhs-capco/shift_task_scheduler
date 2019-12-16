@@ -46,5 +46,33 @@ def test_intial_problem(standard_workweek, colors):
     rcvd = schedule.task_on_workday(standard_workweek, colors, 7)
     assert rcvd == colors[0]
 
+def test_workday_map(standard_workweek, shifts3on2off4on1off):
+    assert schedule.workday_map(standard_workweek) == [
+            True,
+            True,
+            True,
+            True,
+            True,
+            False,
+            False,
+            ]
+    assert schedule.workday_map(shifts3on2off4on1off) == [
+            True,
+            True,
+            True,
+            False,
+            False,
+            True,
+            True,
+            True,
+            True,
+            False,
+            ]
+
+def test_is_workday(standard_workweek, shifts3on2off4on1off):
+    assert schedule.is_workday(standard_workweek, 0) == True
+    assert schedule.is_workday(standard_workweek, 5) == False
+    assert schedule.is_workday(standard_workweek, 6) == False
+
 def test_welcome_msg():
     assert schedule.welcome() == "Welcome to the scheduler"

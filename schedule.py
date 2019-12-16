@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
-
+import itertools
 """
 """
 
 def welcome():
     return "Welcome to the scheduler"
+
+def workday_map(sched):
+    daymap = []
+    for ons, offs in sched:
+        daymap.extend(itertools.repeat(True, ons))
+        daymap.extend(itertools.repeat(False, offs))
+    return daymap
+
+def is_workday(sched, days):
+    daymap = workday_map(sched)
+    return daymap[days % len(daymap)]
 
 def offdays(sched):
     od = 0
