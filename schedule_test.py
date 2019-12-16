@@ -22,12 +22,10 @@ def colors():
             'Violet',
             ]
 
-
 def test_offdays():
     given = [(5,2)]
     rcvd = schedule.offdays(given)
     assert rcvd == 2
-
     given = [(3,2), (4,1)]
     rcvd = schedule.offdays(given)
     assert rcvd == 3
@@ -36,7 +34,6 @@ def test_workdays():
     given = [(5,2)]
     rcvd = schedule.workdays(given)
     assert rcvd == 5
-
     given = [(3,2), (4,1)]
     rcvd = schedule.workdays(given)
     assert rcvd == 7
