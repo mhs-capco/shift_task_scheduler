@@ -46,6 +46,10 @@ def test_intial_problem(standard_workweek, colors):
     rcvd = schedule.task_on_workday(standard_workweek, colors, 7)
     assert rcvd == colors[0]
 
+def test_task_on_day_1(standard_workweek,colors):
+    rcvd = schedule.task_on_day(standard_workweek, colors, 1)
+    assert rcvd == colors[1]
+
 def test_workday_map(standard_workweek, shifts3on2off4on1off):
     assert schedule.workday_map(standard_workweek) == [
             True,

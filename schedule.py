@@ -35,5 +35,10 @@ def task_on_workday(sched, tasks, days):
     else:
         return tasks[days % len(tasks)]
 
+def task_on_day(sched, tasks, days):
+    # is this an off-day?
+    # How many workdays have transpired?
+    return None
+
 if __name__ == "__main__":
     print(welcome())
